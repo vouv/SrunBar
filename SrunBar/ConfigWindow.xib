@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ConfigWindow" customModule="SrunBar" customModuleProvider="target">
+            <connections>
+                <outlet property="passwordField" destination="VIc-aP-Zh1" id="bHz-4V-zWl"/>
+                <outlet property="saveButton" destination="tXP-zD-hbe" id="074-vt-alT"/>
+                <outlet property="usernameField" destination="Inb-kq-pQL" id="XCn-Km-769"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="账号设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="600" y="381" width="249" height="177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="249" height="177"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" contentType="username" translatesAutoresizingMaskIntoConstraints="NO" id="Inb-kq-pQL">
+                        <rect key="frame" x="51" y="97" width="147" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="eSZ-2K-QMh"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="请输入用户名" usesSingleLineMode="YES" bezelStyle="round" id="fl2-yk-51L">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VIc-aP-Zh1">
+                        <rect key="frame" x="51" y="58" width="147" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Ukk-8f-gYw"/>
+                        </constraints>
+                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="请输入密码" usesSingleLineMode="YES" bezelStyle="round" id="ntL-cn-qR0">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <allowedInputSourceLocales>
+                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                            </allowedInputSourceLocales>
+                        </secureTextFieldCell>
+                    </secureTextField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tXP-zD-hbe">
+                        <rect key="frame" x="88" y="13" width="74" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="21K-nG-g8s"/>
+                            <constraint firstAttribute="width" constant="60" id="NBp-o7-Rea"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eSC-TE-GRM">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="saveClicked:" target="-2" id="NwW-8C-2Nl"/>
+                        </connections>
+                    </button>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r3N-Zp-BbI">
+                        <rect key="frame" x="0.0" y="137" width="249" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="MDU-sf-knD"/>
+                            <constraint firstAttribute="width" constant="249" id="MGf-nX-Uxy"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="bg" id="Y3l-cS-Onc"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Inb-kq-pQL" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="4DT-BS-nc3"/>
+                    <constraint firstItem="tXP-zD-hbe" firstAttribute="top" secondItem="VIc-aP-Zh1" secondAttribute="bottom" constant="18" id="ILn-A2-lMT"/>
+                    <constraint firstItem="Inb-kq-pQL" firstAttribute="top" secondItem="r3N-Zp-BbI" secondAttribute="bottom" constant="18" id="JCM-iR-Ezl"/>
+                    <constraint firstItem="Inb-kq-pQL" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="51" id="Mjr-nR-ISr"/>
+                    <constraint firstItem="VIc-aP-Zh1" firstAttribute="top" secondItem="Inb-kq-pQL" secondAttribute="bottom" constant="18" id="hoT-BM-XEj"/>
+                    <constraint firstAttribute="trailing" secondItem="VIc-aP-Zh1" secondAttribute="trailing" constant="51" id="jKK-nv-1kT"/>
+                    <constraint firstItem="tXP-zD-hbe" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="jzz-Fx-Uai"/>
+                    <constraint firstItem="VIc-aP-Zh1" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="51" id="pAI-5V-Fy9"/>
+                    <constraint firstItem="r3N-Zp-BbI" firstAttribute="centerX" secondItem="se5-gp-TjO" secondAttribute="centerX" id="pIv-5b-h67"/>
+                    <constraint firstItem="r3N-Zp-BbI" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="rII-Al-HeH"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="-74.5" y="175.5"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="bg" width="210.5" height="30"/>
+    </resources>
+</document>

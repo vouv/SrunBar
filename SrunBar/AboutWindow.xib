@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindow" customModule="SrunBar" customModuleProvider="target">
+            <connections>
+                <outlet property="versionLabel" destination="40e-FV-cUz" id="XoS-p5-8x5"/>
+                <outlet property="window" destination="Gan-Ov-jNz" id="sur-wA-Aid"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="关于" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="Gan-Ov-jNz">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="600" y="381" width="320" height="240"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <view key="contentView" id="cmc-33-RA8">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-fk-Y5U">
+                        <rect key="frame" x="151" y="142" width="18" height="18"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="statusIcon" id="QBK-9O-4Gb"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEy-qQ-1CF">
+                        <rect key="frame" x="26" y="20" width="268" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2020 Vouv. All rights reserved." id="S2g-5J-gl9">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="40e-FV-cUz">
+                        <rect key="frame" x="134" y="96" width="53" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="SrunBar" id="4AG-SJ-Eel">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="by0-lw-0Bs">
+                        <rect key="frame" x="54" y="58" width="213" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="recessed" title="https://github.com/vouv/SrunBar" bezelStyle="recessed" alignment="center" imageScaling="proportionallyDown" inset="2" id="pcQ-5e-GQ4">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="systemBold" size="12"/>
+                            <connections>
+                                <action selector="linkClicked:" target="-2" id="Rhr-SZ-v1V"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SqN-fk-Y5U" firstAttribute="centerX" secondItem="cmc-33-RA8" secondAttribute="centerX" id="AYc-A4-IAk"/>
+                    <constraint firstItem="40e-FV-cUz" firstAttribute="top" secondItem="SqN-fk-Y5U" secondAttribute="bottom" constant="30" id="JXd-dj-8xa"/>
+                    <constraint firstItem="40e-FV-cUz" firstAttribute="centerX" secondItem="cmc-33-RA8" secondAttribute="centerX" id="Kdi-Uy-ngN"/>
+                    <constraint firstItem="SqN-fk-Y5U" firstAttribute="top" secondItem="cmc-33-RA8" secondAttribute="top" constant="80" id="eKf-Rf-dGb"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="Lkf-8i-QkW"/>
+            </connections>
+            <point key="canvasLocation" x="137" y="171"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="statusIcon" width="27" height="27"/>
+    </resources>
+</document>

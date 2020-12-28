@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SrunBar" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="sS3-a3-GGc" userLabel="StatusMenuController" customClass="StatusMenuController" customModule="SrunBar" customModuleProvider="target">
+            <connections>
+                <outlet property="aboutItem" destination="qwZ-1E-LEa" id="peZ-Tm-A4n"/>
+                <outlet property="infoView" destination="HhN-DY-IST" id="hvL-Yk-HVZ"/>
+                <outlet property="loginItem" destination="CyZ-K7-RM6" id="R4Y-Uy-Hul"/>
+                <outlet property="statusMenu" destination="qZp-Ad-uDX" id="XFG-js-aKj"/>
+            </connections>
+        </customObject>
+        <menu id="qZp-Ad-uDX">
+            <items>
+                <menuItem title="登录" keyEquivalent="r" id="CyZ-K7-RM6">
+                    <connections>
+                        <action selector="loginClicked:" target="sS3-a3-GGc" id="bF4-6b-JbB"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="注销" keyEquivalent="z" id="uto-Y4-n9N">
+                    <connections>
+                        <action selector="logoutClicked:" target="sS3-a3-GGc" id="6gn-mH-WsJ"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="9Bi-wd-Y5L"/>
+                <menuItem title="Info" id="d2M-wS-o1T">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="nf3-SP-UCH"/>
+                <menuItem title="账号设置" id="gjQ-IK-ro7">
+                    <connections>
+                        <action selector="configClicked:" target="sS3-a3-GGc" id="tJf-2E-Oae"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="关于" keyEquivalent="a" id="qwZ-1E-LEa">
+                    <connections>
+                        <action selector="aboutClicked:" target="sS3-a3-GGc" id="b4U-I2-a2y"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="tro-Jg-9xJ"/>
+                <menuItem title="退出" keyEquivalent="q" id="k4N-2W-XAy">
+                    <connections>
+                        <action selector="quitClicked:" target="sS3-a3-GGc" id="Eue-jt-z1Q"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-101" y="158"/>
+        </menu>
+        <customView id="HhN-DY-IST" customClass="InfoView" customModule="SrunBar" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="185" height="157"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZIn-wH-cUL">
+                    <rect key="frame" x="16" y="133" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="TBH-vb-vQ4"/>
+                        <constraint firstAttribute="height" constant="16" id="aky-Sm-fWo"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="在线IP     :" id="LHl-t2-t4z">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BAj-OW-50m">
+                    <rect key="frame" x="16" y="109" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="ZTu-8C-tHs"/>
+                        <constraint firstAttribute="width" constant="62" id="gpy-a0-CwG"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="上网账号 :" id="k04-hM-Q9o">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHv-yj-e2g">
+                    <rect key="frame" x="16" y="85" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="9jH-Nm-cbM"/>
+                        <constraint firstAttribute="width" constant="62" id="iJg-se-HgJ"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="电子钱包 :" id="nH2-IG-MDD">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="amc-nt-VVB">
+                    <rect key="frame" x="81" y="133" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="ek9-zl-UWh"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="IIU-cf-bhZ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ain-xJ-oDo">
+                    <rect key="frame" x="81" y="109" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="cCl-4g-yfV"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="UKk-34-Pbs">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MDr-Bz-rBA">
+                    <rect key="frame" x="81" y="85" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="hsG-wQ-dZS"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="Lkk-MG-Pem">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7JF-6v-exL">
+                    <rect key="frame" x="81" y="61" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="tQb-Qb-vx9"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="aux-yl-Ooj">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zCY-0U-pUK">
+                    <rect key="frame" x="81" y="37" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="hch-mJ-FEr"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="Acc-Xp-cJ0">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eqa-Fp-puk">
+                    <rect key="frame" x="16" y="61" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="0KH-S5-l7l"/>
+                        <constraint firstAttribute="width" constant="62" id="V8r-71-yzx"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="套餐余额 :" id="afI-8T-yTn">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-gA-ZI4">
+                    <rect key="frame" x="16" y="37" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="mo0-Hy-SIQ"/>
+                        <constraint firstAttribute="width" constant="62" id="xX1-dc-stg"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="已用流量 :" id="IWb-pS-5bu">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0gQ-Ic-zkz">
+                    <rect key="frame" x="16" y="13" width="66" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="DGg-Fp-EJn"/>
+                        <constraint firstAttribute="width" constant="62" id="eGi-pz-UUS"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="在线时长 :" id="HmX-gy-0jF">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="slW-uB-NSo">
+                    <rect key="frame" x="81" y="13" width="94" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="gQz-5B-6g5"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" placeholderString="待更新" id="man-qW-o0d">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="slW-uB-NSo" secondAttribute="trailing" constant="12" id="03p-Hl-2gG"/>
+                <constraint firstItem="Eqa-Fp-puk" firstAttribute="top" secondItem="ZHv-yj-e2g" secondAttribute="bottom" constant="8" id="0BV-Jb-UIA"/>
+                <constraint firstItem="ZHv-yj-e2g" firstAttribute="top" secondItem="BAj-OW-50m" secondAttribute="bottom" constant="8" id="1Gc-kq-Bnj"/>
+                <constraint firstItem="ZIn-wH-cUL" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="2VL-gh-ey0"/>
+                <constraint firstItem="Eqa-Fp-puk" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="3vc-mO-dON"/>
+                <constraint firstItem="7JF-6v-exL" firstAttribute="top" secondItem="MDr-Bz-rBA" secondAttribute="bottom" constant="8" id="3yB-Rf-6U1"/>
+                <constraint firstItem="Ain-xJ-oDo" firstAttribute="top" secondItem="amc-nt-VVB" secondAttribute="bottom" constant="8" id="3yX-n0-vQc"/>
+                <constraint firstAttribute="trailing" secondItem="7JF-6v-exL" secondAttribute="trailing" constant="12" id="4XO-uN-RlG"/>
+                <constraint firstItem="0gQ-Ic-zkz" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="67l-Ki-lxd"/>
+                <constraint firstItem="hjl-gA-ZI4" firstAttribute="top" secondItem="Eqa-Fp-puk" secondAttribute="bottom" constant="8" id="CD9-x2-rwb"/>
+                <constraint firstItem="7JF-6v-exL" firstAttribute="leading" secondItem="Eqa-Fp-puk" secondAttribute="trailing" constant="3" id="F7B-VO-1Zr"/>
+                <constraint firstItem="zCY-0U-pUK" firstAttribute="top" secondItem="7JF-6v-exL" secondAttribute="bottom" constant="8" id="G9q-M4-gyl"/>
+                <constraint firstItem="ZHv-yj-e2g" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="Hgw-83-qXt"/>
+                <constraint firstItem="slW-uB-NSo" firstAttribute="leading" secondItem="0gQ-Ic-zkz" secondAttribute="trailing" constant="3" id="I9C-dB-eOl"/>
+                <constraint firstItem="ZIn-wH-cUL" firstAttribute="top" secondItem="HhN-DY-IST" secondAttribute="top" constant="8" id="Jtu-Kf-2jC"/>
+                <constraint firstAttribute="trailing" secondItem="Ain-xJ-oDo" secondAttribute="trailing" constant="12" id="LXm-RT-Ml7"/>
+                <constraint firstItem="MDr-Bz-rBA" firstAttribute="top" secondItem="Ain-xJ-oDo" secondAttribute="bottom" constant="8" id="MO0-2F-tPg"/>
+                <constraint firstItem="amc-nt-VVB" firstAttribute="top" secondItem="HhN-DY-IST" secondAttribute="top" constant="8" id="MVt-aA-2ac"/>
+                <constraint firstAttribute="trailing" secondItem="MDr-Bz-rBA" secondAttribute="trailing" constant="12" id="OGQ-oz-MTq"/>
+                <constraint firstAttribute="trailing" secondItem="zCY-0U-pUK" secondAttribute="trailing" constant="12" id="PKn-bg-eAf"/>
+                <constraint firstItem="slW-uB-NSo" firstAttribute="top" secondItem="zCY-0U-pUK" secondAttribute="bottom" constant="8" id="Phr-JI-JWU"/>
+                <constraint firstItem="MDr-Bz-rBA" firstAttribute="leading" secondItem="ZHv-yj-e2g" secondAttribute="trailing" constant="3" id="VWy-cp-ghR"/>
+                <constraint firstItem="Ain-xJ-oDo" firstAttribute="leading" secondItem="BAj-OW-50m" secondAttribute="trailing" constant="3" id="c1q-9X-OOH"/>
+                <constraint firstItem="BAj-OW-50m" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="fCD-xD-nyA"/>
+                <constraint firstItem="amc-nt-VVB" firstAttribute="leading" secondItem="ZIn-wH-cUL" secondAttribute="trailing" constant="3" id="kS1-eR-eMy"/>
+                <constraint firstAttribute="trailing" secondItem="amc-nt-VVB" secondAttribute="trailing" constant="12" id="tWp-q1-XbJ"/>
+                <constraint firstItem="hjl-gA-ZI4" firstAttribute="leading" secondItem="HhN-DY-IST" secondAttribute="leading" constant="18" id="uFV-2k-qIo"/>
+                <constraint firstItem="0gQ-Ic-zkz" firstAttribute="top" secondItem="hjl-gA-ZI4" secondAttribute="bottom" constant="8" id="uHa-V4-v2W"/>
+                <constraint firstItem="zCY-0U-pUK" firstAttribute="leading" secondItem="hjl-gA-ZI4" secondAttribute="trailing" constant="3" id="woY-kA-jDR"/>
+                <constraint firstItem="BAj-OW-50m" firstAttribute="top" secondItem="ZIn-wH-cUL" secondAttribute="bottom" constant="8" id="xhu-o8-8CD"/>
+            </constraints>
+            <connections>
+                <outlet property="IPField" destination="amc-nt-VVB" id="ZeC-qY-nKT"/>
+                <outlet property="balanceField" destination="7JF-6v-exL" id="af3-qZ-bkF"/>
+                <outlet property="onlineTimeField" destination="slW-uB-NSo" id="z80-0a-1u1"/>
+                <outlet property="usernameField" destination="Ain-xJ-oDo" id="YEE-tc-boQ"/>
+                <outlet property="volumeField" destination="zCY-0U-pUK" id="EH1-8t-UgQ"/>
+                <outlet property="walletField" destination="MDr-Bz-rBA" id="2kd-qM-cRy"/>
+            </connections>
+            <point key="canvasLocation" x="-101.5" y="425.5"/>
+        </customView>
+    </objects>
+</document>

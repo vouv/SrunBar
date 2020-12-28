@@ -1,0 +1,36 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: macOS Deploy
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild
+    - name: Zip
+      run: cd build/Release && zip SrunBar.app.zip -r SrunBar.app
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release
+      id: upload-release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/Release/SrunBar.app.zip
+        asset_name: SrunBar.app.zip
+        asset_content_type: application/zip
