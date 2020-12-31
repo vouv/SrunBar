@@ -1,3 +1,10 @@
+//
+//  AboutWindow.swift
+//  SrunBar
+//
+//  Created by vouv on 2021/1/1.
+//  Copyright © 2021 Vouv. All rights reserved.
+//
 
 import Cocoa
 
@@ -5,7 +12,7 @@ class AboutWindow: NSWindowController, NSWindowDelegate {
 
     @IBOutlet weak var versionLabel: NSTextField!
     
-    let version = "v0.2.7"
+    let version = "v0.2.8"
     let link = "https://github.com/vouv/SrunBar"
 
     override var windowNibName : String! { "AboutWindow" }

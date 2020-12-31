@@ -64,7 +64,7 @@
                 </constraints>
             </view>
             <connections>
-                <outlet property="delegate" destination="-2" id="Lkf-8i-QkW"/>
+                <outlet property="delegate" destination="-2" id="i2N-vn-MiK"/>
             </connections>
             <point key="canvasLocation" x="137" y="171"/>
         </window>

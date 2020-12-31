@@ -1,12 +1,15 @@
+//
+//  ConfigWindow.swift
+//  SrunBar
+//
+//  Created by vouv on 2021/1/1.
+//  Copyright © 2021 Vouv. All rights reserved.
+//
 
 import Cocoa
 
-protocol PreferencesWindowDelegate {
-    func preferencesDidUpdate()
-}
 
 class ConfigWindow: NSWindowController, NSWindowDelegate {
-//    var delegate: PreferencesWindowDelegate?
 
     @IBOutlet weak var usernameField: NSTextField!
     @IBOutlet weak var passwordField: NSSecureTextField!
@@ -17,9 +20,17 @@ class ConfigWindow: NSWindowController, NSWindowDelegate {
     
     @IBAction func saveClicked(_ sender: NSButton) {
         let defaults = UserDefaults.standard
-        defaults.setValue(usernameField.stringValue, forKey: "username")
-        defaults.setValue(passwordField.stringValue, forKey: "password")
-//        delegate?.preferencesDidUpdate()
+        let username = usernameField.stringValue
+        let password = passwordField.stringValue
+        defaults.setValue(username, forKey: "username")
+        defaults.setValue(password, forKey: "password")
+
+        if username != "" && password != "" {
+            // 执行登录
+            DispatchQueue.global().async(){
+                NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
+            }
+        }
         self.window?.close()
     }
     
@@ -35,6 +46,6 @@ class ConfigWindow: NSWindowController, NSWindowDelegate {
     }
     
     func windowWillClose(_ notification: Notification) {
-
+        
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E4165442593AC4E00B48231 /* SrunAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4165432593AC4E00B48231 /* SrunAPI.swift */; };
 		0E4165492595114200B48231 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4165482595114200B48231 /* Hash.swift */; };
+		0E731AF1259E44180032ECD4 /* UpdateWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E731AF0259E44180032ECD4 /* UpdateWindow.xib */; };
+		0E731AF6259E44C80032ECD4 /* UpdateWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E731AF5259E44C80032ECD4 /* UpdateWindow.swift */; };
 		0E76EEBE2597103900A24BC8 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76EEBD2597103900A24BC8 /* model.swift */; };
 		0E76EECF2597175300A24BC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76EECE2597175300A24BC8 /* Request.swift */; };
 		0E76EEEF2597AEB700A24BC8 /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E76EEEE2597AEB700A24BC8 /* AboutWindow.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		0E4165432593AC4E00B48231 /* SrunAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SrunAPI.swift; sourceTree = "<group>"; };
 		0E4165482595114200B48231 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
+		0E731AF0259E44180032ECD4 /* UpdateWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateWindow.xib; sourceTree = "<group>"; };
+		0E731AF5259E44C80032ECD4 /* UpdateWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWindow.swift; sourceTree = "<group>"; };
 		0E76EEBD2597103900A24BC8 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		0E76EECE2597175300A24BC8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0E76EEEE2597AEB700A24BC8 /* AboutWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
@@ -130,9 +134,11 @@
 				0E76EEEE2597AEB700A24BC8 /* AboutWindow.swift */,
 				0E76EEBC2597102C00A24BC8 /* srun */,
 				A21862A01BCDEA2E00770E87 /* ConfigWindow.swift */,
+				0E731AF5259E44C80032ECD4 /* UpdateWindow.swift */,
 				A2DEB1511BC9980E004AAEB3 /* MainMenu.xib */,
 				A21862A11BCDEA2E00770E87 /* ConfigWindow.xib */,
 				0E76EEF62597AFC900A24BC8 /* AboutWindow.xib */,
+				0E731AF0259E44180032ECD4 /* UpdateWindow.xib */,
 				A2DEB14F1BC9980E004AAEB3 /* Assets.xcassets */,
 				A2DEB1541BC9980E004AAEB3 /* Info.plist */,
 			);
@@ -220,7 +226,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1230;
-				ORGANIZATIONNAME = Etsy;
+				ORGANIZATIONNAME = Vouv;
 				TargetAttributes = {
 					A2DEB1491BC9980E004AAEB3 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -267,6 +273,7 @@
 				A2DEB1501BC9980E004AAEB3 /* Assets.xcassets in Resources */,
 				A21862A31BCDEA2E00770E87 /* ConfigWindow.xib in Resources */,
 				A2DEB1531BC9980E004AAEB3 /* MainMenu.xib in Resources */,
+				0E731AF1259E44180032ECD4 /* UpdateWindow.xib in Resources */,
 				0E76EEF72597AFC900A24BC8 /* AboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +307,7 @@
 				A2DEB14E1BC9980E004AAEB3 /* AppDelegate.swift in Sources */,
 				0E76EECF2597175300A24BC8 /* Request.swift in Sources */,
 				0E76EEBE2597103900A24BC8 /* model.swift in Sources */,
+				0E731AF6259E44C80032ECD4 /* UpdateWindow.swift in Sources */,
 				A2B4247D1BCDE3D300887CB2 /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

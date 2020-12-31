@@ -1,3 +1,10 @@
+//
+//  StatusMenuController.swift
+//  SrunBar
+//
+//  Created by vouv on 2021/1/1.
+//  Copyright © 2021 Vouv. All rights reserved.
+//
 
 import Cocoa
 
@@ -9,6 +16,7 @@ class StatusMenuController: NSObject, NSMenuDelegate {
     
     var configWindow: ConfigWindow!
     var aboutWindow: AboutWindow!
+    var updateWindow: UpdateWindow!
     
     @IBOutlet weak var loginItem: NSMenuItem!
     
@@ -37,6 +45,7 @@ class StatusMenuController: NSObject, NSMenuDelegate {
         // 两个基本页面
         configWindow = ConfigWindow()
         aboutWindow = AboutWindow()
+        updateWindow = UpdateWindow()
         
         // 注册监听
         NotificationCenter.default.addObserver(forName: NSNotification.Name("login"), object: nil, queue: nil) { (notice) in
@@ -67,7 +76,7 @@ class StatusMenuController: NSObject, NSMenuDelegate {
             }else if let res = res {
                 if res.access_token.count > 0 {
                     self.notify(title: "登录成功", subtitle: "账号:\(res.username)")
-                }else if res.error_msg == "Arrearage users" {
+                }else if res.error_msg.contains("Arrearage users") {
                     self.notify(title: "已欠费", subtitle: "登录失败")
                 }else {
                     self.notify(title: "登录异常", subtitle: "\(res.error_msg)")
@@ -115,18 +124,22 @@ class StatusMenuController: NSObject, NSMenuDelegate {
 
     // 打开view自动更新info
     func menuWillOpen(_ menu: NSMenu) {
-        NotificationCenter.default.post(name: NSNotification.Name("info"), object: nil)
+        DispatchQueue.global().async(){
+            NotificationCenter.default.post(name: NSNotification.Name("info"), object: nil)
+        }
     }
-    
-    
+
     @IBAction func loginClicked(_ sender: NSMenuItem) {
-        NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
+        DispatchQueue.global().async(){
+            NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
+        }
     }
     
     @IBAction func logoutClicked(_ sender: NSMenuItem) {
-        NotificationCenter.default.post(name: NSNotification.Name("logout"), object: nil)
+        DispatchQueue.global().async(){
+            NotificationCenter.default.post(name: NSNotification.Name("logout"), object: nil)
+        }
     }
-    
 
     private func notify(title: String, subtitle: String) {
         let nty = NSUserNotification.init()
@@ -148,6 +161,10 @@ class StatusMenuController: NSObject, NSMenuDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
         
+    @IBAction func updateClicked(_ sender: NSMenuItem) {
+        self.updateWindow.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared.terminate(self)
     }

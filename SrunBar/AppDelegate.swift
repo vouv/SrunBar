@@ -1,3 +1,10 @@
+//
+//  AppDelegate.swift
+//  SrunBar
+//
+//  Created by vouv on 2021/1/1.
+//  Copyright © 2021 Vouv. All rights reserved.
+//
 
 import Cocoa
 
@@ -6,15 +13,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        // check update
+        // 每天执行一次更新
+//        let al = NSAlert.init();
+//        al.messageText = "update!"
+//        al.runModal()
     }
     
-
-
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
-    
     
 }
 

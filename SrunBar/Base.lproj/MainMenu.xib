@@ -36,22 +36,29 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="9Bi-wd-Y5L"/>
-                <menuItem title="Info" id="d2M-wS-o1T">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="nf3-SP-UCH"/>
-                <menuItem title="账号设置" id="gjQ-IK-ro7">
+                <menuItem title="账号设置..." keyEquivalent="," id="gjQ-IK-ro7">
                     <connections>
                         <action selector="configClicked:" target="sS3-a3-GGc" id="tJf-2E-Oae"/>
                     </connections>
                 </menuItem>
-                <menuItem title="关于" keyEquivalent="a" id="qwZ-1E-LEa">
+                <menuItem isSeparatorItem="YES" id="GMS-xY-bdJ"/>
+                <menuItem title="Info" id="d2M-wS-o1T">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="nf3-SP-UCH"/>
+                <menuItem title="关于..." id="qwZ-1E-LEa">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="aboutClicked:" target="sS3-a3-GGc" id="b4U-I2-a2y"/>
                     </connections>
                 </menuItem>
+                <menuItem title="检查更新..." keyEquivalent="u" id="dq6-WX-TYa">
+                    <connections>
+                        <action selector="updateClicked:" target="sS3-a3-GGc" id="lzb-is-TMb"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="tro-Jg-9xJ"/>
-                <menuItem title="退出" keyEquivalent="q" id="k4N-2W-XAy">
+                <menuItem title="退出 Srun" keyEquivalent="q" id="k4N-2W-XAy">
                     <connections>
                         <action selector="quitClicked:" target="sS3-a3-GGc" id="Eue-jt-z1Q"/>
                     </connections>

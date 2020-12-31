@@ -1,3 +1,10 @@
+//
+//  SrunBarUITests.swift
+//  SrunBarUITests
+//
+//  Created by vouv on 2021/1/1.
+//  Copyright © 2021 Vouv. All rights reserved.
+//
 
 import XCTest
 
