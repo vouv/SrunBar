@@ -8,6 +8,9 @@
 
 import Cocoa
 
+enum SrunError : Error {
+    case RequestError
+}
 
 class SrunAPI {
 
@@ -17,6 +20,8 @@ class SrunAPI {
     let InfoUrl = "/cgi-bin/rad_user_info"
     
     let hash = Hash()
+
+    let timeout = TimeInterval.init(2)
     
     func login(username: String, password: String, handle: @escaping (RespLogin?, Error?) -> Void) {
         let (acid, err) = getAcid()
@@ -25,8 +30,8 @@ class SrunAPI {
             return
         }
         
-        let (respChallenge, errc) = self.getChallenge(username: username)
-        if let err = errc {
+        let (respChallenge, errChallenge) = getChallenge(username: username)
+        if let err = errChallenge {
             handle(nil, err)
             return
         }
@@ -158,7 +163,7 @@ class SrunAPI {
     private func getAcid() -> (Int, Error?) {
   
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = TimeInterval.init(3)
+        config.timeoutIntervalForRequest = self.timeout
         let session = URLSession(configuration: config)
 
         let semaphore = DispatchSemaphore.init(value: 0)
@@ -215,7 +220,7 @@ class SrunAPI {
         urlRequest.httpMethod = "GET"
                 
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = TimeInterval.init(3)
+        config.timeoutIntervalForRequest = timeout
         let session = URLSession(configuration: config)
         let task = session.dataTask(
             with: urlRequest,
@@ -228,6 +233,10 @@ class SrunAPI {
 
                 let body = String(data: data!, encoding: String.Encoding.utf8)!
 
+                if body.count < queryCallback.count {
+                    handle(nil, SrunError.RequestError)
+                    return
+                }
 
                 let startIndex = body.index(body.startIndex, offsetBy: queryCallback.count+1)
                 let endIndex = body.index(body.endIndex, offsetBy: -1)

@@ -17,17 +17,22 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="sS3-a3-GGc" userLabel="StatusMenuController" customClass="StatusMenuController" customModule="SrunBar" customModuleProvider="target">
             <connections>
-                <outlet property="aboutItem" destination="qwZ-1E-LEa" id="peZ-Tm-A4n"/>
                 <outlet property="infoView" destination="HhN-DY-IST" id="hvL-Yk-HVZ"/>
-                <outlet property="loginItem" destination="CyZ-K7-RM6" id="R4Y-Uy-Hul"/>
                 <outlet property="statusMenu" destination="qZp-Ad-uDX" id="XFG-js-aKj"/>
+                <outlet property="statusMenuItem" destination="CyZ-K7-RM6" id="GW0-wd-eur"/>
             </connections>
         </customObject>
         <menu id="qZp-Ad-uDX">
             <items>
-                <menuItem title="登录" keyEquivalent="r" id="CyZ-K7-RM6">
+                <menuItem title="已联网" image="NSStatusAvailable" enabled="NO" id="CyZ-K7-RM6">
+                    <attributedString key="attributedTitle"/>
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Xmn-xj-Qek"/>
+                <menuItem title="登录" keyEquivalent="r" id="PaX-ye-kHd">
+                    <attributedString key="attributedTitle"/>
                     <connections>
-                        <action selector="loginClicked:" target="sS3-a3-GGc" id="bF4-6b-JbB"/>
+                        <action selector="loginClicked:" target="sS3-a3-GGc" id="5G1-fz-K1N"/>
                     </connections>
                 </menuItem>
                 <menuItem title="注销" keyEquivalent="z" id="uto-Y4-n9N">
@@ -252,4 +257,7 @@
             <point key="canvasLocation" x="-101.5" y="425.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="NSStatusAvailable" width="16" height="16"/>
+    </resources>
 </document>

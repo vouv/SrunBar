@@ -8,6 +8,13 @@
 
 import Cocoa
 
+enum SrunStatus : Int {
+    case connected = 1
+    case unKnown = 2
+    case ready = 3
+}
+
+
 class StatusMenuController: NSObject, NSMenuDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var infoView: InfoView!
@@ -18,9 +25,10 @@ class StatusMenuController: NSObject, NSMenuDelegate {
     var aboutWindow: AboutWindow!
     var updateWindow: UpdateWindow!
     
-    @IBOutlet weak var loginItem: NSMenuItem!
-    
-    @IBOutlet weak var aboutItem: NSMenuItem!
+    @IBOutlet weak var statusMenuItem: NSMenuItem!
+//    @IBOutlet weak var loginItem: NSMenuItem!
+//
+//    @IBOutlet weak var aboutItem: NSMenuItem!
     
     var statusIcon: NSImage? {
         let icon = NSImage(named: "statusIcon")
@@ -31,6 +39,18 @@ class StatusMenuController: NSObject, NSMenuDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let srun = SrunAPI()
+    
+    var srunStatus = SrunStatus.connected
+    let srunStatusText = [
+        SrunStatus.connected: "已联网",
+        SrunStatus.ready: "未登录",
+        SrunStatus.unKnown: "未知网络",
+    ]
+    let srunStatusImage = [
+        SrunStatus.connected: NSImage(named: "NSStatusAvailable")!,
+        SrunStatus.ready: NSImage(named: "NSStatusPartiallyAvailable")!,
+        SrunStatus.unKnown: NSImage(named: "NSStatusNone")!,
+    ]
     
     override func awakeFromNib() {
         statusItem.menu = statusMenu
@@ -61,7 +81,7 @@ class StatusMenuController: NSObject, NSMenuDelegate {
             self.doInfo()
         }
     }
-    
+        
     func doLogin() {
         let defaults = UserDefaults.standard
         guard let username = defaults.string(forKey: "username") else {
@@ -97,8 +117,12 @@ class StatusMenuController: NSObject, NSMenuDelegate {
         srun.logout(username: username) { (err) in
             if let err = err {
                 self.notify(title: "注销失败", subtitle: err.localizedDescription)
+                self.setSrunStatus(.unKnown)
+
             }else {
                 self.notify(title: "注销成功", subtitle: "账号\(username)")
+                self.setSrunStatus(.ready)
+                return
             }
         }
     }
@@ -113,12 +137,28 @@ class StatusMenuController: NSObject, NSMenuDelegate {
         }
         srun.info(username: username, password: password) { (res, error) in
             if error != nil {
-                return
+                
             }else if let info = res {
-                DispatchQueue.main.async {
-                    self.infoView.update(info)
+                // 如未登录，返回数据为空
+                if info.user_name == username {
+                    DispatchQueue.main.async {
+                        self.setSrunStatus(.connected)
+                        self.infoView.update(info)
+                    }
+                }else {
+                    self.setSrunStatus(.ready)
                 }
+                return
             }
+            self.setSrunStatus(.unKnown)
+        }
+    }
+    
+    func setSrunStatus(_ status: SrunStatus) {
+        DispatchQueue.main.async {
+            self.srunStatus = status
+            self.statusMenuItem.title = self.srunStatusText[self.srunStatus] ?? ""
+            self.statusMenuItem.image = self.srunStatusImage[self.srunStatus]
         }
     }
 
